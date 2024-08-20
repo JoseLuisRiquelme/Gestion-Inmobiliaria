@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+  <!--Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>NavBar</title>
+</head>
+<body>
+<div class="container">
+<div th:fragment="nav" >
+  <nav class="navbar navbar-expand-lg fixed-top navbar-scroll m-5" style="padding: 0 20px;" >
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="@{/}">Reporte inmobiliario</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" th:href="@{/}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/reports}">Reportes</a>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{https://www.linkedin.com/in/jose-luis-riquelme-saez/}"
+               target="_blank">Desarrollado por</a>
+          </li>
+          <li class="nav-item">
+            <form id="logout-form" th:action="@{/logout}" method="post">
+              <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+              <button type="submit" class="nav-link">Logout</button>
+            </form>
+        </ul>
+        <ul class="navbar-nav d-flex flex-row">
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="#!">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="#!">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="#!">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!--Section: Design Block-->
+  <section>
+    <div id="intro" class="bg-image" style="
+        background-image: url('https://media.licdn.com/dms/image/v2/D5612AQEBCI0IvEf1sg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1657553251498?e=1729728000&v=beta&t=73kqsijuXvkZAEDSocluUd-vU8QoNNNZCQUHvqo7qJY');
+        height: 50vh;
+        background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+      ">
+      <div class="mask" style="background-color: rgba(0, 0, 0, 0.2);">
+        <div class="container d-flex justify-content-center align-items-center h-100">
+          <div class="row align-items-center">
+            <div class="col-12">
+              <h1 class="mt-5 text-white display-1" style="padding-top:15%;">Reporte Inmobiliario</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div th:replace="~{foot::foot}"></div>
+<div th:replace="~{footer:footer}"></div>
+</div>
+</body>
+</html>

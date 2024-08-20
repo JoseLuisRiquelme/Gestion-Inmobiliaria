@@ -1,0 +1,75 @@
+<!Doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--Style sheet -->
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <!-- Font Awesome -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css"/>
+    <!--form-->
+    <link rel="shortcut icon" th:href="@{/favicon/favicon.ico}" type="image/x-icon">
+    <title>Home</title>
+</head>
+<body>
+<div class="container">
+    <div th:replace="~{nav::nav}"></div>
+    <div class="container py-2">
+        <div class="h1 text-center text-dark" id="pageHeaderTitle">Bienvenido al Reporte Inmobiliario</div>
+
+        <article class="postcard light blue">
+            <a class="postcard__img_link" th:href="@{/reports}">
+                <img class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title"/>
+            </a>
+            <div class="postcard__text t-dark">
+                <h1 class="postcard__title blue"><a th:href="@{/reports}">REPORTES</a></h1>
+                <div class="postcard__bar"></div>
+                <div class="postcard__preview-txt">El sector inmobiliario en Chile ha experimentado un crecimiento
+                    significativo en las últimas décadas, impulsado por el desarrollo urbano y la demanda habitacional
+                    en las principales ciudades del país. Santiago, la capital, destaca como el epicentro de esta
+                    expansión, con proyectos residenciales y comerciales que transforman continuamente el paisaje
+                    urbano. Sin embargo, el mercado inmobiliario también enfrenta desafíos, como la necesidad de
+                    viviendas asequibles y el impacto ambiental de la construcción. A pesar de estos retos, el sector
+                    sigue siendo una pieza clave en la economía chilena, contribuyendo al dinamismo económico y a la
+                    generación de empleo.
+                </div>
+            </div>
+        </article>
+        <article class="postcard light red">
+            <a class="postcard__img_link" th:href="@{/https://www.linkedin.com/company/colab-ora}">
+                <img class="postcard__img" src="https://picsum.photos/501/500" alt="Image Title"/>
+            </a>
+            <div class="postcard__text t-dark">
+                <h1 class="postcard__title red"><a th:href="@{/https://www.linkedin.com/company/colab-ora}">{Colab}ora</a></h1>
+                <div class="postcard__bar"></div>
+                <div class="postcard__preview-txt">{Colab}ora es una agrupación dedicada a brindar experiencias valiosas
+                    a desarrolladores juniors mediante el trabajo en equipo y la colaboración entre profesionales del
+                    sector de la programación. En este espacio, los desarrolladores en formación tienen la oportunidad
+                    de participar en proyectos reales, donde aplican sus conocimientos y aprenden nuevas habilidades en
+                    un entorno colaborativo. Además, {Colab}ora se enfoca en el desarrollo de propuestas digitales
+                    innovadoras, conectando a jóvenes talentos con expertos del rubro para fomentar el crecimiento
+                    profesional. La agrupación se distingue por su compromiso con el aprendizaje continuo y la creación
+                    de redes de apoyo dentro de la comunidad tecnológica.
+                </div>
+            </div>
+        </article>
+    </div>
+    <div th:replace="~{foot::foot}"></div>
+    <div th:replace="~{footer::footer}"></div>
+</div>
+</body>
+</html>

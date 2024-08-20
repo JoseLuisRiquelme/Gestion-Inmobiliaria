@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf">
+<head>
+    <meta charset="UTF-8">
+  <!--Boostrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!--Style sheet -->
+  <link rel="stylesheet" th:href="@{/style.css}">
+  <!-- Button Style-->
+  <link rel="stylesheet" th:href="@{/buttonStyle.css}">
+  <!-- Font Awesome -->
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+  <!-- Google Fonts Roboto -->
+  <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+  />
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css"/>
+    <title>Reportes</title>
+</head>
+<body>
+<div class="container">
+<div th:replace="~{nav::nav}"></div>
+  <h1 style="text-align:center">REPORTES</h1>
+  <a th:href="@{/reports/new}" class="btn btn-primary btn-rounded m-2" style="background: #fff !important;
+  color: #9c9c9c; border-radius=50px;">Agregar nuevo reporte</a>
+<div class="container bootstrap snippets bootdeys">
+  <div class="row">
+    <!-- Itera sobre los reportes -->
+    <div class="col-md-4 col-sm-6 content-card" th:each="report, iterStat : ${reports}">
+      <div class="card-big-shadow">
+        <!-- Asigna un color de la lista de colores basado en el índice -->
+        <div class="card card-just-text"
+             data-background="color"
+             th:data-color="${colors[iterStat.index % colors.size()]}"
+             data-radius="none">
+          <div class="content">
+            <h6 class="category">Reporte Inmobiliario</h6>
+            <h4 class="title">
+              <a href="#" th:text="${report.title}">Card Title</a>
+            </h4>
+            <p class="description" th:text="${report.description}">
+            </p>
+            <form th:action="@{/reports/{id}(id=${report.id})}" style="display:inline-block">
+              <button type="submit" class="btn btn-primary" role="button" style="background: #fff !important;
+  color: #9c9c9c; border-radius=50px;">Editar</button>
+            </form>
+            <form th:action="@{/reports/del/{id}(id=${report.id})}" style="display:inline-block">
+              <button type="submit" class="btn btn-danger" role="button" style="background: #fff !important;
+  color: #9c9c9c; border-radius=50px;">Borrar</button>
+            </form>
+          </div>
+        </div> <!-- end card -->
+      </div>
+    </div>
+  </div>
+</div>
+<div th:replace="~{foot::foot}"></div>
+<div th:replace="~{footer::footer}"></div>
+</div>
+</body>
+</html>

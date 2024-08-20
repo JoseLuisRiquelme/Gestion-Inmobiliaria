@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--Boostrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!--Style sheet -->
+    <!--link rel="stylesheet" th:href="@{/registerStyle.css}"-->
+    <!-- Font Awesome -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css"/>
+    <title>Login</title>
+</head>
+<body  style="background-color:#fff;">
+<div class="container border border-light my-2 py-5 rounded">
+<h1 style="text-align:center;">Iniciar Sesion</h1>
+<form th:action="@{/login}" method="post" >
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input class="form-control border " type="text" name="username" id="username" required />
+        <label class="form-label" for="username">Correo</label>
+    </div>
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input class="form-control border " type="password" name="password" id="password"required />
+        <label class="form-label" for="password">Contrasenha</label>
+    </div>
+    <div class="d-flex align-text:center" style="align-items:center;">
+        <button class="btn btn-primary" type="submit">Iniciar sesion</button>
+    </div>
+    <div th:if="${param.error}">
+        <p style="color:red">Usuario o contrasenha no validos</p>
+    </div>
+</form >
+    <h6 style="text-align:center"><a th:href="@{/register}">Registrarse?</a> </h6>
+</div>
+ <div th:replace="~{foot::foot}"></div>
+ <div th:replace="~{footer::footer}"></div>
+</div>
+</script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+</body>
+</html>
