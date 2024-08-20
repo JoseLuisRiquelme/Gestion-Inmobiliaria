@@ -18,6 +18,8 @@
   />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css"/>
+  <!--Fav icon-->
+  <link rel="shortcut icon" th:href="@{/favicon_io/favicon.ico}" type="image/x-icon">
   <title>Login</title>
 </head>
 <body  style="background-color:#fff;">
@@ -39,6 +41,12 @@
     <div data-mdb-input-init class="form-outline mb-4">
       <input class="form-control border " type="password" name="password" id="password"required />
       <label class="form-label" for="password">Contrasenha</label>
+    </div>
+    <div data-mdb-input-init class="form-outline mb-4">
+      <label for="role">Seleccione Rol:</label>
+      <select id="role" name="role">
+        <option th:each="role : ${roles}" th:value="${role.name}" th:text="${role.name}" class="form-select border">Role</option>
+      </select>
     </div>
     <!--div class="form-outline mb-4">
       <label for="image" style="color:white;">Subir imagen</label>

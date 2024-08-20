@@ -26,7 +26,7 @@ public class SecurityConfig {
     private final UserDetailsService userDetailsService;
     private final JwtFilterRequest jwtFilterRequest;
 
-    @Autowired
+
     public SecurityConfig(UserDetailsService userDetailsService,JwtFilterRequest jwtFilterRequest) {
         this.userDetailsService = userDetailsService;
         this.jwtFilterRequest = jwtFilterRequest;
@@ -64,8 +64,8 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/js/**", "/css/**","/login","/auth","api/reports","/register").permitAll()
-                        .requestMatchers("/js/**", "/css/**","/register").hasRole("CLIENT")
-                        .requestMatchers("/js/**", "/css/**","/transport","transport/reports/**","/register").hasAnyRole("ADMIN","USR")
+                        .requestMatchers("/js/**", "/css/**","/transport","/transport/reports/**","/register").hasAnyRole("ADMIN","USR")
+                        .requestMatchers("/js/**", "/css/**","/register","/").hasRole("CLIENT")
                         .anyRequest().authenticated())
                 .formLogin((form) -> form
                             .loginPage("/login")
